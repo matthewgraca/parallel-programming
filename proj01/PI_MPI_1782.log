@@ -1,0 +1,5 @@
+Execution time (sec) = 0.039503 total_count = 80     total points = 100     estimation = 3.2000 delta = 0.0584
+Execution time (sec) = 0.000031 total_count = 787    total points = 1000    estimation = 3.1480 delta = 0.0064
+Execution time (sec) = 0.000060 total_count = 7842   total points = 10000   estimation = 3.1368 delta = 0.0048
+Execution time (sec) = 0.000595 total_count = 78758  total points = 100000  estimation = 3.1503 delta = 0.0087
+Execution time (sec) = 0.005380 total_count = 785170 total points = 1000000 estimation = 3.1407 delta = 0.0009

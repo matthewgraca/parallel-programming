@@ -1,0 +1,12 @@
+
+Thread[0] - slice [0:124999]
+Thread[1] - slice [125000:249999]
+Thread[2] - slice [250000:374999]
+Thread[3] - slice [375000:499999]
+Thread[4] - slice [500000:624999]
+Thread[5] - slice [625000:749999]
+Thread[6] - slice [750000:874999]
+Thread[7] - slice [875000:999999]
+Time for minmax 0.00191086 seconds
+Result: min: -2147470988 max: 2147481229
+

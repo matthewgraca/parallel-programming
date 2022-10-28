@@ -1,0 +1,11 @@
+Process 0 on cn19
+Process 1 on cn20
+Process 3 on cn22
+Process 2 on cn21
+Process 4 on cn23
+Process 2 - startIndex 400000 endIndex 599999; part_min 764 part_max 2147472004
+Process 3 - startIndex 600000 endIndex 799999; part_min 2683 part_max 2147473822
+Process 4 - startIndex 800000 endIndex 999999; part_min 45242 part_max 2147476584
+Process 1 - startIndex 200000 endIndex 399999; part_min 28171 part_max 2147480021
+Process 0 - startIndex 0 endIndex 199999; part_min 3722 part_max 2147471385
+Execution time (sec) = 0.016697 min = 764 max = 2147480021
