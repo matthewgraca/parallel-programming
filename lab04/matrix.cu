@@ -86,7 +86,7 @@ int main () {
    cudaMalloc((void **) &device_c, deviceSize) ;
 
    dim3 dimBlock (WIDTH, WIDTH);
-   dim3 dimGrid (WIDTH/TILE_WIDTH, WIDTH/TILE_WIDTH);
+   dim3 dimGrid (1,1);
    product<<<dimGrid, dimBlock>>> (device_a, device_b, device_c, WIDTH);
 
    // copy result from device back to host
