@@ -78,8 +78,7 @@ print(device_c.get())
 # run sum function and get results
 sum = mod.get_function("sum")
 sum(device_a, device_b, device_c,
-    block = (WIDTH, WIDTH, 1))
-#TODO improvements - remove grid init and then you can rm the if stmt
+    block = (WIDTH, WIDTH, 1))  # allocates one 6x6 block of threads
 
 print("-" * 60)
 print("A + B (GPU):")
