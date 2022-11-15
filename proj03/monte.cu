@@ -28,7 +28,6 @@ __device__ bool in_range(float x, float y){
 __global__ void count_in_range(bool *d_a, const int n, curandState *states){
   int index = blockIdx.x * blockDim.x + threadIdx.x ;
   if (index < n){
-    // generate n pairs of random nums from [0,1]
     float x = curand_uniform(&states[index]);
     float y = curand_uniform(&states[index]);
     d_a[index] = (in_range(x, y)) ? 1 : 0;
@@ -48,23 +47,20 @@ void validate_inputs(int argc, char *argv[]){
   string usage = "usage: monte [10...1000000]";
   // ensure the number of args fit (2)
   if (argc != 2){
-    cout << "one argument required; "
-         << usage << endl;
+    cout << "one argument required; " << usage << endl;
     exit(0);
   }
 
   // ensure the number is an int
   if (!is_int(argv[1])){
-    cout << "arguments must be 32-bit integers; "
-         << usage << endl;
+    cout << "arguments must be 32-bit integers; " << usage << endl;
     exit(0);
   }
 
   // ensure the int is in range
   int a = stoi(argv[1]);
   if (a < 10 || a > 1000000){
-    cout << "out of range; "
-         << usage << endl;
+    cout << "out of range; " << usage << endl;
     exit(0);
   }
 }
@@ -103,12 +99,13 @@ int main(int argc, char* argv[]){
   cudaMalloc((void **) &device_cnt, device_cnt_size);
 
   // copy host data (not necessary)
-  // allocate threads and run kernel function
+  // allocate threads and blocks on gpu 
   int threads = 1024;
   int blocks = ceil(points / (float)threads);
-
   dim3 dimBlock(threads);
   dim3 dimGrid(blocks);
+
+  // run kernel functions
   random_init<<<dimGrid, dimBlock>>>(device_rand);
   count_in_range<<<dimGrid, dimBlock>>>(device_cnt, points, device_rand);
 
