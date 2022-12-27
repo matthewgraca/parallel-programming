@@ -3,5 +3,7 @@
 
 // counts the number of disjoint elements between two int arrays
 int sequential_count(int a[], int b[], int n);
+int parallel_count(int a[], int b[], int n);
+int naive_parallel_count(int a[], int b[], int n);
 
 #endif  // DISJOINT_ELEMENTS_H_
