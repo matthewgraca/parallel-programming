@@ -9,6 +9,7 @@ std::mutex parallel_mutex;
 /******************************************************************************
  * sequential count
  *****************************************************************************/
+
 // counts the number of disjoint elements between two int arrays, same size
 int sequential_count(int* a, int* b, int n){
   int count = 0;
@@ -33,14 +34,58 @@ int sequential_count(int* a, int* b, int n){
 /******************************************************************************
  * parallel count
  *****************************************************************************/
+
+// threaded function
 void parallel_threaded_count(int& count, 
     int* a, const std::unordered_map<int, int>& umap,
     int beg, int end){
-
+  int local_count = 0;
+  for (int i = beg; i < end; i++){
+    if (!umap.contains(a[i]))
+      local_count += 2;
+  }
+  std::lock_guard<std::mutex> lock(parallel_mutex);
+  count += local_count;
 }
+
 // uses threads to count disjoint elements
 int parallel_count(int* a, int* b, int n){
-  return 0;
+  int count = 0;
+  // store b into a hashmap
+  std::unordered_map<int, int> umap;
+  for (int i = 0; i < n; i++){
+    umap.insert({b[i], i});
+  }
+
+  // determine partitioning indices
+  int threads = 8;
+  std::thread t[threads];
+  int slice = n / threads;
+  int remainder = n % threads;
+  int start_idx = 0;
+
+  // if n <= threads, just run the sequential version
+  if (n <= threads){
+    count = sequential_count(a, b, n);
+  }
+  else{
+    // initialize threads
+    for (int i = 0; i < threads; i++){
+      if (i == threads-1)
+        slice += remainder;
+      t[i] = std::thread(parallel_threaded_count, 
+          std::ref(count), std::ref(a), std::ref(umap), 
+          start_idx, start_idx+slice);
+      start_idx += slice;
+    }
+
+    // join threads
+    for (int i = 0; i < threads; i++){
+      t[i].join();
+    }
+  }
+
+  return count;
 }
 
 /******************************************************************************
