@@ -58,7 +58,7 @@ int parallel_count(int* a, int* b, int n){
   }
 
   // determine partitioning indices
-  int threads = 8;
+  const int threads = std::thread::hardware_concurrency();
   std::thread t[threads];
   int slice = n / threads;
   int remainder = n % threads;
@@ -113,7 +113,7 @@ void naive_threaded_count(int& count, int* a, int* b,
 // naive solution to counting disjoint elements
 int naive_parallel_count(int* a, int* b, int n){
   // determine partitioning indices
-  int threads = 8;
+  const int threads = std::thread::hardware_concurrency();
   std::thread t[threads];
   int slice = n / threads;
   int remainder = n % threads;
