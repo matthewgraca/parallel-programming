@@ -1,2 +1,2 @@
-# compile using c++20
+# compiled using gcc 9.4.0, requires this flag to compile with c++20
 build --cxxopt='-std=c++2a'
