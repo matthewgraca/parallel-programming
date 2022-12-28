@@ -1,0 +1,58 @@
+exec ${PAGER:-/usr/bin/less} "$0" || exit 1
+Executing tests from //:disjoint_elements_unittest
+-----------------------------------------------------------------------------
+Running main() from gmock_main.cc
+[==========] Running 20 tests from 3 test suites.
+[----------] Global test environment set-up.
+[----------] 7 tests from DisjointElementsSequentialTest
+[ RUN      ] DisjointElementsSequentialTest.EmptyIsNoDisjoint
+[       OK ] DisjointElementsSequentialTest.EmptyIsNoDisjoint (0 ms)
+[ RUN      ] DisjointElementsSequentialTest.NoDisjoint
+[       OK ] DisjointElementsSequentialTest.NoDisjoint (0 ms)
+[ RUN      ] DisjointElementsSequentialTest.OneDisjoint
+[       OK ] DisjointElementsSequentialTest.OneDisjoint (0 ms)
+[ RUN      ] DisjointElementsSequentialTest.AllDisjoint
+[       OK ] DisjointElementsSequentialTest.AllDisjoint (0 ms)
+[ RUN      ] DisjointElementsSequentialTest.AllDisjointLargeDataset
+[       OK ] DisjointElementsSequentialTest.AllDisjointLargeDataset (2 ms)
+[ RUN      ] DisjointElementsSequentialTest.SomeDisjointLargeDataset
+[       OK ] DisjointElementsSequentialTest.SomeDisjointLargeDataset (2 ms)
+[ RUN      ] DisjointElementsSequentialTest.SomeDisjointiGigaDataset
+[       OK ] DisjointElementsSequentialTest.SomeDisjointiGigaDataset (487 ms)
+[----------] 7 tests from DisjointElementsSequentialTest (493 ms total)
+
+[----------] 7 tests from DisjointElementsParallelTest
+[ RUN      ] DisjointElementsParallelTest.EmptyIsNoDisjoint
+[       OK ] DisjointElementsParallelTest.EmptyIsNoDisjoint (0 ms)
+[ RUN      ] DisjointElementsParallelTest.NoDisjoint
+[       OK ] DisjointElementsParallelTest.NoDisjoint (0 ms)
+[ RUN      ] DisjointElementsParallelTest.OneDisjoint
+[       OK ] DisjointElementsParallelTest.OneDisjoint (0 ms)
+[ RUN      ] DisjointElementsParallelTest.AllDisjoint
+[       OK ] DisjointElementsParallelTest.AllDisjoint (0 ms)
+[ RUN      ] DisjointElementsParallelTest.AllDisjointLargeDataset
+[       OK ] DisjointElementsParallelTest.AllDisjointLargeDataset (17 ms)
+[ RUN      ] DisjointElementsParallelTest.SomeDisjointLargeDataset
+[       OK ] DisjointElementsParallelTest.SomeDisjointLargeDataset (2 ms)
+[ RUN      ] DisjointElementsParallelTest.SomeDisjointiGigaDataset
+[       OK ] DisjointElementsParallelTest.SomeDisjointiGigaDataset (320 ms)
+[----------] 7 tests from DisjointElementsParallelTest (340 ms total)
+
+[----------] 6 tests from DisjointElementsNaiveTest
+[ RUN      ] DisjointElementsNaiveTest.EmptyIsNoDisjoint
+[       OK ] DisjointElementsNaiveTest.EmptyIsNoDisjoint (0 ms)
+[ RUN      ] DisjointElementsNaiveTest.NoDisjoint
+[       OK ] DisjointElementsNaiveTest.NoDisjoint (0 ms)
+[ RUN      ] DisjointElementsNaiveTest.OneDisjoint
+[       OK ] DisjointElementsNaiveTest.OneDisjoint (0 ms)
+[ RUN      ] DisjointElementsNaiveTest.AllDisjoint
+[       OK ] DisjointElementsNaiveTest.AllDisjoint (0 ms)
+[ RUN      ] DisjointElementsNaiveTest.AllDisjointLargeDataset
+[       OK ] DisjointElementsNaiveTest.AllDisjointLargeDataset (19 ms)
+[ RUN      ] DisjointElementsNaiveTest.SomeDisjointLargeDataset
+[       OK ] DisjointElementsNaiveTest.SomeDisjointLargeDataset (12 ms)
+[----------] 6 tests from DisjointElementsNaiveTest (31 ms total)
+
+[----------] Global test environment tear-down
+[==========] 20 tests from 3 test suites ran. (865 ms total)
+[  PASSED  ] 20 tests.
