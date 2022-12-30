@@ -61,12 +61,17 @@ int no_parallel(){
 }
 
 int quarter_parallel(){
-  parallelize(PROBLEM_SIZE/4);
+  parallelize(PROBLEM_SIZE*0.25);
   return 1;
 }
 
 int half_parallel(){
-  parallelize(PROBLEM_SIZE/2);
+  parallelize(PROBLEM_SIZE*0.5);
+  return 1;
+}
+
+int three_quarters_parallel(){
+  parallelize(PROBLEM_SIZE*0.75);
   return 1;
 }
 
