@@ -1,0 +1,34 @@
+exec ${PAGER:-/usr/bin/less} "$0" || exit 1
+Executing tests from //:amdahls_law_unittest
+-----------------------------------------------------------------------------
+Running main() from gmock_main.cc
+[==========] Running 5 tests from 5 test suites.
+[----------] Global test environment set-up.
+[----------] 1 test from NoParallel
+[ RUN      ] NoParallel.Test
+[       OK ] NoParallel.Test (86 ms)
+[----------] 1 test from NoParallel (86 ms total)
+
+[----------] 1 test from QuarterParallel
+[ RUN      ] QuarterParallel.Test
+[       OK ] QuarterParallel.Test (67 ms)
+[----------] 1 test from QuarterParallel (67 ms total)
+
+[----------] 1 test from HalfParallel
+[ RUN      ] HalfParallel.Test
+[       OK ] HalfParallel.Test (55 ms)
+[----------] 1 test from HalfParallel (55 ms total)
+
+[----------] 1 test from ThreeQuartersParallel
+[ RUN      ] ThreeQuartersParallel.Test
+[       OK ] ThreeQuartersParallel.Test (43 ms)
+[----------] 1 test from ThreeQuartersParallel (43 ms total)
+
+[----------] 1 test from FullParallel
+[ RUN      ] FullParallel.Test
+[       OK ] FullParallel.Test (31 ms)
+[----------] 1 test from FullParallel (31 ms total)
+
+[----------] Global test environment tear-down
+[==========] 5 tests from 5 test suites ran. (285 ms total)
+[  PASSED  ] 5 tests.
